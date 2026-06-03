@@ -1,0 +1,1664 @@
+fileFormatVersion: 2
+guid: 6471322a11b7e1143b9af496b9ea0c13
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8756392481917744657
+    second: sprite johnny6-Photoroom_0
+  - first:
+      213: 6070086539890133787
+    second: sprite johnny6-Photoroom_1
+  - first:
+      213: 7109012068015169819
+    second: sprite johnny6-Photoroom_2
+  - first:
+      213: -2431218826363778315
+    second: sprite johnny6-Photoroom_3
+  - first:
+      213: -707511695388207152
+    second: sprite johnny6-Photoroom_4
+  - first:
+      213: -6502739966416121255
+    second: sprite johnny6-Photoroom_5
+  - first:
+      213: 646622576966463264
+    second: sprite johnny6-Photoroom_6
+  - first:
+      213: 9074353947185166845
+    second: sprite johnny6-Photoroom_7
+  - first:
+      213: 1382396280469728499
+    second: sprite johnny6-Photoroom_8
+  - first:
+      213: 1034099073975748716
+    second: sprite johnny6-Photoroom_9
+  - first:
+      213: -7897130509719438719
+    second: sprite johnny6-Photoroom_10
+  - first:
+      213: -4780831374900438625
+    second: sprite johnny6-Photoroom_11
+  - first:
+      213: -7431080186354412716
+    second: sprite johnny6-Photoroom_12
+  - first:
+      213: 1519702197994193149
+    second: sprite johnny6-Photoroom_13
+  - first:
+      213: -5570749295703516370
+    second: sprite johnny6-Photoroom_14
+  - first:
+      213: -5676266977451492489
+    second: sprite johnny6-Photoroom_15
+  - first:
+      213: -5760330996814137130
+    second: sprite johnny6-Photoroom_16
+  - first:
+      213: 8590174633938485402
+    second: sprite johnny6-Photoroom_17
+  - first:
+      213: 8802752992272599394
+    second: sprite johnny6-Photoroom_18
+  - first:
+      213: 3102956980950937321
+    second: sprite johnny6-Photoroom_19
+  - first:
+      213: -1443280780226723918
+    second: sprite johnny6-Photoroom_20
+  - first:
+      213: -9028669320798038229
+    second: sprite johnny6-Photoroom_21
+  - first:
+      213: 3020810807710609694
+    second: sprite johnny6-Photoroom_22
+  - first:
+      213: -9075245446059508021
+    second: sprite johnny6-Photoroom_23
+  - first:
+      213: 3751549280086845876
+    second: sprite johnny6-Photoroom_24
+  - first:
+      213: 7120514939856041651
+    second: sprite johnny6-Photoroom_25
+  - first:
+      213: -3660938602467781489
+    second: sprite johnny6-Photoroom_26
+  - first:
+      213: -2461798246763074283
+    second: sprite johnny6-Photoroom_27
+  - first:
+      213: -6313750463598695237
+    second: sprite johnny6-Photoroom_28
+  - first:
+      213: 7942981049308248411
+    second: sprite johnny6-Photoroom_29
+  - first:
+      213: 6989916412372425438
+    second: sprite johnny6-Photoroom_30
+  - first:
+      213: -273396310955612117
+    second: sprite johnny6-Photoroom_31
+  - first:
+      213: -3748785536421060057
+    second: sprite johnny6-Photoroom_32
+  - first:
+      213: -1783809155673610129
+    second: sprite johnny6-Photoroom_33
+  - first:
+      213: -6164660985241274890
+    second: sprite johnny6-Photoroom_34
+  - first:
+      213: 7967884434385266654
+    second: sprite johnny6-Photoroom_35
+  - first:
+      213: 5189288063209884113
+    second: sprite johnny6-Photoroom_36
+  - first:
+      213: 6907981881185597995
+    second: sprite johnny6-Photoroom_37
+  - first:
+      213: -1631243867677354370
+    second: sprite johnny6-Photoroom_38
+  - first:
+      213: -4948201873895560736
+    second: sprite johnny6-Photoroom_39
+  - first:
+      213: -7337746052658861485
+    second: sprite johnny6-Photoroom_40
+  - first:
+      213: 7553459317799929308
+    second: sprite johnny6-Photoroom_41
+  - first:
+      213: 7468743653760624061
+    second: sprite johnny6-Photoroom_42
+  - first:
+      213: 4362100246758132427
+    second: sprite johnny6-Photoroom_43
+  - first:
+      213: 6019337473452278498
+    second: sprite johnny6-Photoroom_44
+  - first:
+      213: 1771174880614690174
+    second: sprite johnny6-Photoroom_45
+  - first:
+      213: 1390131399312061341
+    second: sprite johnny6-Photoroom_46
+  - first:
+      213: -68010684421882721
+    second: sprite johnny6-Photoroom_47
+  - first:
+      213: -324678804431322053
+    second: sprite johnny6-Photoroom_48
+  - first:
+      213: -2062032475815154097
+    second: sprite johnny6-Photoroom_49
+  - first:
+      213: -7378372294691569941
+    second: sprite johnny6-Photoroom_50
+  - first:
+      213: 6969723944623630433
+    second: sprite johnny6-Photoroom_51
+  - first:
+      213: -864819047398204093
+    second: sprite johnny6-Photoroom_52
+  - first:
+      213: -6028839588903912890
+    second: sprite johnny6-Photoroom_53
+  - first:
+      213: -2643791827776840434
+    second: sprite johnny6-Photoroom_54
+  - first:
+      213: -7659581200183537184
+    second: sprite johnny6-Photoroom_55
+  - first:
+      213: -3839589342889593806
+    second: sprite johnny6-Photoroom_56
+  - first:
+      213: 6571354829721840958
+    second: sprite johnny6-Photoroom_57
+  - first:
+      213: 6262018905704392402
+    second: sprite johnny6-Photoroom_58
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 456
+        width: 67
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 116bb96a194f48970800000000000000
+      internalID: 8756392481917744657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_1
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 456
+        width: 50
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1b080e1c874d3450800000000000000
+      internalID: 6070086539890133787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_2
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 455
+        width: 47
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b11620a8fc848a260800000000000000
+      internalID: 7109012068015169819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_3
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 455
+        width: 48
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fa485bcb53924ed0800000000000000
+      internalID: -2431218826363778315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_4
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 455
+        width: 48
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d793f19cd96e26f0800000000000000
+      internalID: -707511695388207152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_5
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 455
+        width: 50
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 952180b1470a1c5a0800000000000000
+      internalID: -6502739966416121255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_6
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 455
+        width: 50
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02f65dbcec349f800800000000000000
+      internalID: 646622576966463264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_7
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 455
+        width: 50
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df9b22446d49eed70800000000000000
+      internalID: 9074353947185166845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_8
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 456
+        width: 51
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fc2834c7124f2310800000000000000
+      internalID: 1382396280469728499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_9
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 456
+        width: 47
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6882eef0abd95e00800000000000000
+      internalID: 1034099073975748716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_10
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 455
+        width: 51
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18af54764a1c76290800000000000000
+      internalID: -7897130509719438719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_11
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 455
+        width: 66
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f995408c13317adb0800000000000000
+      internalID: -4780831374900438625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_12
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 350
+        width: 69
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 453d6ea21ff7fd890800000000000000
+      internalID: -7431080186354412716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_13
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 350
+        width: 69
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df003dbe811171510800000000000000
+      internalID: 1519702197994193149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_14
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 351
+        width: 62
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2b95d8d709b0b2b0800000000000000
+      internalID: -5570749295703516370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_15
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 351
+        width: 67
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77b39b61249d931b0800000000000000
+      internalID: -5676266977451492489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_16
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 350
+        width: 66
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d8b83a5a713f00b0800000000000000
+      internalID: -5760330996814137130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_17
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 350
+        width: 69
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a90897e115e663770800000000000000
+      internalID: 8590174633938485402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_18
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 351
+        width: 66
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2694aed1539a92a70800000000000000
+      internalID: 8802752992272599394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_19
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 352
+        width: 67
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ee26ea1feaef0b20800000000000000
+      internalID: 3102956980950937321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_20
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 351
+        width: 66
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bfff67f6cf68fbe0800000000000000
+      internalID: -1443280780226723918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_21
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 353
+        width: 65
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b279d53b619b3b280800000000000000
+      internalID: -9028669320798038229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_22
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 352
+        width: 67
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e117047bc631ce920800000000000000
+      internalID: 3020810807710609694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_23
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 350
+        width: 70
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bce342a79504e0280800000000000000
+      internalID: -9075245446059508021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_24
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 238
+        width: 54
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b9e2f4913e201430800000000000000
+      internalID: 3751549280086845876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_25
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 238
+        width: 56
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b63bf79c9621d260800000000000000
+      internalID: 7120514939856041651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_26
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 238
+        width: 54
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f84946fccbbb13dc0800000000000000
+      internalID: -3660938602467781489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_27
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 238
+        width: 57
+        height: 93
+      alignment: 9
+      pivot: {x: 0.43376988, y: 0.49420068}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51de109a98fe5ddd0800000000000000
+      internalID: -2461798246763074283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_28
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 238
+        width: 56
+        height: 93
+      alignment: 9
+      pivot: {x: 0.4325872, y: 0.488402}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbcedb0b76d0168a0800000000000000
+      internalID: -6313750463598695237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_29
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 238
+        width: 58
+        height: 94
+      alignment: 9
+      pivot: {x: 0.4349118, y: 0.4885254}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b597dad3e232b3e60800000000000000
+      internalID: 7942981049308248411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_30
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 238
+        width: 67
+        height: 93
+      alignment: 9
+      pivot: {x: 0.37926152, y: 0.49420068}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eda912161fb210160800000000000000
+      internalID: 6989916412372425438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_31
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 238
+        width: 64
+        height: 93
+      alignment: 9
+      pivot: {x: 0.37360096, y: 0.49420068}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b28a692f083b43cf0800000000000000
+      internalID: -273396310955612117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_32
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 238
+        width: 59
+        height: 93
+      alignment: 9
+      pivot: {x: 0.4177339, y: 0.46520635}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7222082aa63a9fbc0800000000000000
+      internalID: -3748785536421060057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_33
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 238
+        width: 60
+        height: 93
+      alignment: 9
+      pivot: {x: 0.419104, y: 0.45360836}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f682cf02603ae37e0800000000000000
+      internalID: -1783809155673610129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_34
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 238
+        width: 63
+        height: 93
+      alignment: 9
+      pivot: {x: 0.3715956, y: 0.47680402}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f5fbf5ee79b27aa0800000000000000
+      internalID: -6164660985241274890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_35
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 238
+        width: 66
+        height: 93
+      alignment: 9
+      pivot: {x: 0.36925992, y: 0.46520635}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed7e5ea6dac939e60800000000000000
+      internalID: 7967884434385266654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_36
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 123
+        width: 67
+        height: 97
+      alignment: 9
+      pivot: {x: 0.39535996, y: 0.47220084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d9ccccdffd040840800000000000000
+      internalID: 5189288063209884113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_37
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 123
+        width: 67
+        height: 97
+      alignment: 9
+      pivot: {x: 0.40340912, y: 0.48332042}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2af6eebbe41edf50800000000000000
+      internalID: 6907981881185597995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_38
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 123
+        width: 67
+        height: 97
+      alignment: 9
+      pivot: {x: 0.41145825, y: 0.48888013}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e769e055858ac59e0800000000000000
+      internalID: -1631243867677354370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_39
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 123
+        width: 67
+        height: 97
+      alignment: 9
+      pivot: {x: 0.38731042, y: 0.48888013}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e96885cc94745bb0800000000000000
+      internalID: -4948201873895560736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_40
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 123
+        width: 61
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35a6e3797d61b2a90800000000000000
+      internalID: -7337746052658861485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_41
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 123
+        width: 68
+        height: 97
+      alignment: 9
+      pivot: {x: 0.3968986, y: 0.49999967}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd544d6ca3743d860800000000000000
+      internalID: 7553459317799929308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_42
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 123
+        width: 68
+        height: 97
+      alignment: 9
+      pivot: {x: 0.39689815, y: 0.47776055}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db5ead038ce46a760800000000000000
+      internalID: 7468743653760624061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_43
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 123
+        width: 58
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bca89a2201b498c30800000000000000
+      internalID: 4362100246758132427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_44
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 123
+        width: 57
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e202505a8bf88350800000000000000
+      internalID: 6019337473452278498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_45
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 123
+        width: 54
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7d222a7b2a749810800000000000000
+      internalID: 1771174880614690174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_46
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 123
+        width: 52
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d93bc17742dba4310800000000000000
+      internalID: 1390131399312061341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_47
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 123
+        width: 54
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c3a1294a06e0ff0800000000000000
+      internalID: -68010684421882721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 73
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b34c5cbf8528e7bf0800000000000000
+      internalID: -324678804431322053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_49
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 1
+        width: 58
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4ee7bb63603263e0800000000000000
+      internalID: -2062032475815154097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_50
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 1
+        width: 53
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bee33528d71ca9990800000000000000
+      internalID: -7378372294691569941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_51
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 1
+        width: 53
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16863dd100f69b060800000000000000
+      internalID: 6969723944623630433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_52
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 1
+        width: 56
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34d96dc88ab8ff3f0800000000000000
+      internalID: -864819047398204093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_53
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 0
+        width: 47
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64af1970652455ca0800000000000000
+      internalID: -6028839588903912890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_54
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 0
+        width: 47
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0dd74d075d5f4bd0800000000000000
+      internalID: -2643791827776840434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_55
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 0
+        width: 47
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e1dcca0b73b3b590800000000000000
+      internalID: -7659581200183537184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_56
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 0
+        width: 46
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 234b0bde5d907bac0800000000000000
+      internalID: -3839589342889593806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_57
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 1
+        width: 48
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3d2e9ea664223b50800000000000000
+      internalID: 6571354829721840958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite johnny6-Photoroom_58
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 0
+        width: 68
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d66a43640927e650800000000000000
+      internalID: 6262018905704392402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 30f0123b20847534ca6327287adc2ac9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      sprite johnny6-Photoroom_0: 8756392481917744657
+      sprite johnny6-Photoroom_1: 6070086539890133787
+      sprite johnny6-Photoroom_10: -7897130509719438719
+      sprite johnny6-Photoroom_11: -4780831374900438625
+      sprite johnny6-Photoroom_12: -7431080186354412716
+      sprite johnny6-Photoroom_13: 1519702197994193149
+      sprite johnny6-Photoroom_14: -5570749295703516370
+      sprite johnny6-Photoroom_15: -5676266977451492489
+      sprite johnny6-Photoroom_16: -5760330996814137130
+      sprite johnny6-Photoroom_17: 8590174633938485402
+      sprite johnny6-Photoroom_18: 8802752992272599394
+      sprite johnny6-Photoroom_19: 3102956980950937321
+      sprite johnny6-Photoroom_2: 7109012068015169819
+      sprite johnny6-Photoroom_20: -1443280780226723918
+      sprite johnny6-Photoroom_21: -9028669320798038229
+      sprite johnny6-Photoroom_22: 3020810807710609694
+      sprite johnny6-Photoroom_23: -9075245446059508021
+      sprite johnny6-Photoroom_24: 3751549280086845876
+      sprite johnny6-Photoroom_25: 7120514939856041651
+      sprite johnny6-Photoroom_26: -3660938602467781489
+      sprite johnny6-Photoroom_27: -2461798246763074283
+      sprite johnny6-Photoroom_28: -6313750463598695237
+      sprite johnny6-Photoroom_29: 7942981049308248411
+      sprite johnny6-Photoroom_3: -2431218826363778315
+      sprite johnny6-Photoroom_30: 6989916412372425438
+      sprite johnny6-Photoroom_31: -273396310955612117
+      sprite johnny6-Photoroom_32: -3748785536421060057
+      sprite johnny6-Photoroom_33: -1783809155673610129
+      sprite johnny6-Photoroom_34: -6164660985241274890
+      sprite johnny6-Photoroom_35: 7967884434385266654
+      sprite johnny6-Photoroom_36: 5189288063209884113
+      sprite johnny6-Photoroom_37: 6907981881185597995
+      sprite johnny6-Photoroom_38: -1631243867677354370
+      sprite johnny6-Photoroom_39: -4948201873895560736
+      sprite johnny6-Photoroom_4: -707511695388207152
+      sprite johnny6-Photoroom_40: -7337746052658861485
+      sprite johnny6-Photoroom_41: 7553459317799929308
+      sprite johnny6-Photoroom_42: 7468743653760624061
+      sprite johnny6-Photoroom_43: 4362100246758132427
+      sprite johnny6-Photoroom_44: 6019337473452278498
+      sprite johnny6-Photoroom_45: 1771174880614690174
+      sprite johnny6-Photoroom_46: 1390131399312061341
+      sprite johnny6-Photoroom_47: -68010684421882721
+      sprite johnny6-Photoroom_48: -324678804431322053
+      sprite johnny6-Photoroom_49: -2062032475815154097
+      sprite johnny6-Photoroom_5: -6502739966416121255
+      sprite johnny6-Photoroom_50: -7378372294691569941
+      sprite johnny6-Photoroom_51: 6969723944623630433
+      sprite johnny6-Photoroom_52: -864819047398204093
+      sprite johnny6-Photoroom_53: -6028839588903912890
+      sprite johnny6-Photoroom_54: -2643791827776840434
+      sprite johnny6-Photoroom_55: -7659581200183537184
+      sprite johnny6-Photoroom_56: -3839589342889593806
+      sprite johnny6-Photoroom_57: 6571354829721840958
+      sprite johnny6-Photoroom_58: 6262018905704392402
+      sprite johnny6-Photoroom_6: 646622576966463264
+      sprite johnny6-Photoroom_7: 9074353947185166845
+      sprite johnny6-Photoroom_8: 1382396280469728499
+      sprite johnny6-Photoroom_9: 1034099073975748716
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
