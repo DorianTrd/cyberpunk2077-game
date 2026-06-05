@@ -1769,6 +1769,7 @@ MonoBehaviour:
   maxHealth: 3
   bloodPrefab: {fileID: 4773786229493702567, guid: ae58324d8bc51dd47a93a76218efe4df, type: 3}
   firePoint: {fileID: 1428446632}
+  cigaretteFumee: {fileID: 2095229002}
 --- !u!61 &1628010308
 BoxCollider2D:
   m_ObjectHideFlags: 0
