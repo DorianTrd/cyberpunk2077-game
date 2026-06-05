@@ -2309,8 +2309,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1736026944830112599, guid: 106d0ae5ba61d9b4eb7fd38c453f323a, type: 3}
+      propertyPath: dodgeChance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736026944830112599, guid: 106d0ae5ba61d9b4eb7fd38c453f323a, type: 3}
       propertyPath: attackRadius
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736026944830112599, guid: 106d0ae5ba61d9b4eb7fd38c453f323a, type: 3}
+      propertyPath: dodgeDetectionRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736026944830112599, guid: 106d0ae5ba61d9b4eb7fd38c453f323a, type: 3}
+      propertyPath: dodgeSpeedMultiplier
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6172130500638919549, guid: 106d0ae5ba61d9b4eb7fd38c453f323a, type: 3}
       propertyPath: m_Name

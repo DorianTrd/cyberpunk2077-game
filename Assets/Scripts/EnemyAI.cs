@@ -13,9 +13,9 @@ public class EnemyAI : MonoBehaviour, IDamageable
     private bool isDead = false;
 
     [Header("Système d'Esquive (Ninja)")]
-    [Range(0f, 100f)] public float dodgeChance = 25f; 
+    [Range(0f, 100f)] public float dodgeChance = 40f; // Augmenté un peu pour qu'il esquive plus souvent
     public float dodgeDetectionRadius = 3f;           
-    public float dodgeSpeedMultiplier = 2f;          
+    public float dodgeSpeedMultiplier = 3f;          // Un peu plus rapide pour un effet "vif"
     public float dodgeCooldown = 2f;                 
 
     [Header("Zone de Frappe (Hitbox)")]
@@ -52,9 +52,10 @@ public class EnemyAI : MonoBehaviour, IDamageable
             return; 
         }
 
+        // Si l'ennemi est en train d'esquiver (bond en haut ou en bas)
         if (Time.time < dodgeEndTime)
         {
-            rb.MovePosition(rb.position + dodgeDirection * (speed * dodgeSpeedMultiplier * Time.fixedDeltaTime));
+            rb.linearVelocity = dodgeDirection * (speed * dodgeSpeedMultiplier);
             return; 
         }
 
@@ -72,16 +73,14 @@ public class EnemyAI : MonoBehaviour, IDamageable
         else
         {
             Vector2 direction = ((Vector2)playerTransform.position - rb.position).normalized;
-            rb.MovePosition(rb.position + direction * (speed * Time.fixedDeltaTime));
+            rb.linearVelocity = direction * speed; // Utilisation plus propre de linearVelocity
 
             if (anim != null) anim.SetBool("IsWalking", true);
 
-            // GESTION DU RETOURNEMENT ET DU DEPLACEMENT DE LA HITBOX
+            // Gestion du retournement et déplacement de la hitbox
             if (direction.x > 0.1f)
             {
                 spriteRenderer.flipX = true;       
-                
-                // Si l'ennemi regarde à DROITE, on force l'AttackPoint à passer à DROITE (X positif)
                 if (attackPoint != null && attackPoint.localPosition.x < 0)
                 {
                     attackPoint.localPosition = new Vector3(Mathf.Abs(attackPoint.localPosition.x), attackPoint.localPosition.y, attackPoint.localPosition.z);
@@ -90,8 +89,6 @@ public class EnemyAI : MonoBehaviour, IDamageable
             else if (direction.x < -0.1f)
             {
                 spriteRenderer.flipX = false; 
-                
-                // Si l'ennemi regarde à GAUCHE, on force l'AttackPoint à passer à GAUCHE (X négatif)
                 if (attackPoint != null && attackPoint.localPosition.x > 0)
                 {
                     attackPoint.localPosition = new Vector3(-Mathf.Abs(attackPoint.localPosition.x), attackPoint.localPosition.y, attackPoint.localPosition.z);
@@ -100,26 +97,32 @@ public class EnemyAI : MonoBehaviour, IDamageable
         }
     }
 
+    // Détection de la balle par collision (Trigger)
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (isDead) return;
 
         if (other.CompareTag("Bullet") && Time.time >= nextDodgeTime)
         {
+            // Jet de dés : est-ce que l'ennemi a les réflexes d'esquiver cette balle ?
             if (Random.Range(0f, 100f) <= dodgeChance)
             {
-                Rigidbody2D bulletRb = other.GetComponent<Rigidbody2D>();
-                Vector2 bulletVelocity = bulletRb != null ? bulletRb.linearVelocity : Vector2.right;
-                
-                dodgeDirection = new Vector2(-bulletVelocity.y, bulletVelocity.x).normalized;
-                if (Random.Range(0, 2) == 0) dodgeDirection = -dodgeDirection; 
+                // On regarde si la balle est plus haute ou plus basse que l'ennemi
+                float yDiff = other.transform.position.y - transform.position.y;
 
-                dodgeEndTime = Time.time + 0.2f; 
+                // Si la balle arrive plutôt par le haut, l'ennemi esquive vers le bas. Sinon, vers le haut.
+                float chooseY = (yDiff > 0) ? -1f : 1f;
+
+                // On applique un mouvement purement vertical (haut ou bas) pour laisser passer le projectile
+                dodgeDirection = new Vector2(0f, chooseY).normalized;
+
+                dodgeEndTime = Time.time + 0.15f; // Durée très courte du bond rapide (0.15 seconde)
                 nextDodgeTime = Time.time + dodgeCooldown; 
             }
             else
             {
-                nextDodgeTime = Time.time + 0.5f; 
+                // S'il rate ses réflexes, il ne peut pas retenter l'esquive sur une autre balle immédiatement
+                nextDodgeTime = Time.time + 0.4f; 
             }
         }
     }
