@@ -8,35 +8,32 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        // Avance en ligne droite vers la droite
-        transform.Translate(Vector2.right * (_speed * Time.deltaTime));
+        // CORRECTION : Avance vers le "devant" de la balle (prend en compte la rotation du FirePoint)
+        transform.Translate(transform.right * (_speed * Time.deltaTime), Space.World);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // 1. Sécurité : On ignore le joueur (Johnny) si la balle le frôle en sortant du pistolet
         if (other.CompareTag("Player"))
         {
             return;
         }
 
-        // 2. Si la balle touche un mur ou le décor (Tag "Obstacle" ou "Finish")
         if (other.CompareTag("Obstacle") || other.CompareTag("Finish"))
         {
             Debug.Log("La balle a touché le mur !");
-            Destroy(gameObject); // La balle s'autodétruit
+            Destroy(gameObject); 
             return;
         }
 
-        // 3. Pour plus tard : Si elle touche un ennemi (Tag "Enemy")
         if (other.CompareTag("Enemy"))
         {
             Debug.Log("Touché ! Dégâts infligés à l'ennemi.");
 
-            // On cherche si l'ennemi a un système de vie et on lui applique les dégâts
+            // Maintenant que EnemyAI a ", IDamageable", cette ligne fonctionne parfaitement !
             other.GetComponent<IDamageable>()?.TakeDamage(_damage);
 
-            Destroy(gameObject); // La balle s'autodétruit après l'impact
+            Destroy(gameObject); 
             return;
         }
     }
