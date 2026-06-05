@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4476377055914745022}
   m_Layer: 6
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -295274693
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8221038627346153678, guid: 3c95b991f73dff748add67c724dd711e, type: 3}
@@ -109,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   _speed: 20
   _damage: 1
+  _bloodPrefab: {fileID: 4773786229493702567, guid: ae58324d8bc51dd47a93a76218efe4df, type: 3}
 --- !u!95 &1751061048560729359
 Animator:
   serializedVersion: 7
