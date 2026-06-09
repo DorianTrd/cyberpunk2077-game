@@ -1,13 +1,18 @@
+using System; // OBLIGATOIRE pour utiliser Action (l'événement pour l'UI)
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour, IDamageable
 {
+    // ÉVÉNEMENT POUR L'UI
+    // L'UI va s'abonner à cette alerte pour savoir quand éteindre les cœurs
+    public event Action<int> OnPlayerHealthChanged;
+
     [SerializeField, Range(1f, 20f)] private float speed = 5f;
     
     [Header("Santé de Johnny")]
-    [SerializeField] private int maxHealth = 3;
+    public int maxHealth = 3; // Mis en public pour que le script HealthUI puisse lire le chiffre "3"
     [SerializeField] private GameObject bloodPrefab; 
     private int currentHealth;
     private bool isDead = false;
@@ -33,6 +38,12 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (_spriteRenderer == null) _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         currentHealth = maxHealth;
+    }
+
+    // FONCTION AJOUTÉE : Permet au script HealthUI de lire la vie de Johnny sans erreur d'accès
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
     }
 
     private void OnMove(InputValue value)
@@ -103,7 +114,6 @@ public class PlayerController : MonoBehaviour, IDamageable
                 if (cigaretteFumee != null && cigaretteFumee.localPosition.x < 0)
                 {
                     cigaretteFumee.localPosition = new Vector3(Mathf.Abs(cigaretteFumee.localPosition.x), cigaretteFumee.localPosition.y, cigaretteFumee.localPosition.z);
-                    // Si c'est un système de particules, on le fait pivoter aussi si besoin :
                     cigaretteFumee.localEulerAngles = new Vector3(0, 0, 0);
                 }
             }
@@ -122,19 +132,24 @@ public class PlayerController : MonoBehaviour, IDamageable
                 if (cigaretteFumee != null && cigaretteFumee.localPosition.x > 0)
                 {
                     cigaretteFumee.localPosition = new Vector3(-Mathf.Abs(cigaretteFumee.localPosition.x), cigaretteFumee.localPosition.y, cigaretteFumee.localPosition.z);
-                    // On l'inverse à 180° pour que les particules partent dans le bon sens esthétique
                     cigaretteFumee.localEulerAngles = new Vector3(0, 180, 0);
                 }
             }
         }
     }
 
+    // GESTION DES DÉGÂTS REÇUS (Appelée par les ennemis)
     public void TakeDamage(int amount)
     {
         if (isDead) return;
 
         currentHealth -= amount;
+        if (currentHealth < 0) currentHealth = 0;
+
         Debug.Log("Johnny a été touché ! PV restants : " + currentHealth);
+
+        // ALERT UI : On envoie la nouvelle vie actuelle au script HealthUI
+        OnPlayerHealthChanged?.Invoke(currentHealth);
 
         if (bloodPrefab != null)
         {
