@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour, IDamageable
 {
+    public event Action<EnemyAI> OnDeath;
+
     [Header("Réglages de déplacement")]
     public float speed = 3f; 
     public float attackRange = 1.2f;     
@@ -12,11 +15,11 @@ public class EnemyAI : MonoBehaviour, IDamageable
     private int currentHealth;
     private bool isDead = false;
 
-    [Header("Système d'Esquive (Ninja)")]
-    [Range(0f, 100f)] public float dodgeChance = 40f; // Augmenté un peu pour qu'il esquive plus souvent
-    public float dodgeDetectionRadius = 3f;           
-    public float dodgeSpeedMultiplier = 3f;          // Un peu plus rapide pour un effet "vif"
-    public float dodgeCooldown = 2f;                 
+    [Header("Mouvements Imprévisibles (Zigzag)")]
+    [SerializeField] private float changeMovementInterval = 0.6f; 
+    [SerializeField, Range(0f, 100f)] private float zigzagChance = 60f; 
+    private float nextMovementChangeTime = 0f;
+    private float currentYOffset = 0f; 
 
     [Header("Zone de Frappe (Hitbox)")]
     [SerializeField] private Transform attackPoint;   
@@ -26,24 +29,32 @@ public class EnemyAI : MonoBehaviour, IDamageable
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Animator anim;
-    
     private float nextAttackTime = 0f;
-    private float nextDodgeTime = 0f;
-    private Vector2 dodgeDirection = Vector2.zero;
-    private float dodgeEndTime = 0f;
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
-        currentHealth = maxHealth;
+    }
 
+    void Start()
+    {
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null) playerTransform = player.transform;
     }
 
-    void FixedUpdate()
+    public void Init(EnemyData data)
+    {
+        this.speed = data.speed;
+        this.maxHealth = data.maxHealth;
+        this.currentHealth = data.maxHealth;
+
+        // Optionnel : teinter l'ennemi selon la couleur du ScriptableObject
+        if (spriteRenderer != null) spriteRenderer.color = data.debugColor;
+    }
+
+   void FixedUpdate()
     {
         if (isDead || playerTransform == null || !playerTransform.gameObject.activeInHierarchy)
         {
@@ -52,16 +63,9 @@ public class EnemyAI : MonoBehaviour, IDamageable
             return; 
         }
 
-        // Si l'ennemi est en train d'esquiver (bond en haut ou en bas)
-        if (Time.time < dodgeEndTime)
-        {
-            rb.linearVelocity = dodgeDirection * (speed * dodgeSpeedMultiplier);
-            return; 
-        }
-
         float distanceToPlayer = Vector2.Distance(rb.position, playerTransform.position);
 
-        // Mode Attaque
+        // MODE ATTAQUE
         if (distanceToPlayer <= attackRange)
         {
             rb.linearVelocity = Vector2.zero; 
@@ -69,16 +73,31 @@ public class EnemyAI : MonoBehaviour, IDamageable
 
             if (Time.time >= nextAttackTime) TriggerAttack();
         }
-        // Mode Traque
+        // MODE TRAQUE (ZIGZAG FILTRÉ PAR LA PHYSIQUE)
         else
         {
-            Vector2 direction = ((Vector2)playerTransform.position - rb.position).normalized;
-            rb.linearVelocity = direction * speed; // Utilisation plus propre de linearVelocity
+            if (Time.time >= nextMovementChangeTime)
+            {
+                CalculerProchainChoixDeMouvement();
+            }
+
+            Vector2 directionToPlayer = ((Vector2)playerTransform.position - rb.position).normalized;
+            Vector2 finalDirection = directionToPlayer;
+
+            if (currentYOffset != 0)
+            {
+                finalDirection += new Vector2(0f, currentYOffset);
+                finalDirection.Normalize(); 
+            }
+
+            // CORRECTION RADICALE : On repasse par la velocity physique standard, 
+            // mais gérée proprement dans le FixedUpdate pour que les murs Default le bloquent à 100%
+            rb.linearVelocity = finalDirection * speed;
 
             if (anim != null) anim.SetBool("IsWalking", true);
 
-            // Gestion du retournement et déplacement de la hitbox
-            if (direction.x > 0.1f)
+            // Gestion du visuel (Flip)
+            if (directionToPlayer.x > 0.1f)
             {
                 spriteRenderer.flipX = true;       
                 if (attackPoint != null && attackPoint.localPosition.x < 0)
@@ -86,7 +105,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
                     attackPoint.localPosition = new Vector3(Mathf.Abs(attackPoint.localPosition.x), attackPoint.localPosition.y, attackPoint.localPosition.z);
                 }
             }       
-            else if (direction.x < -0.1f)
+            else if (directionToPlayer.x < -0.1f)
             {
                 spriteRenderer.flipX = false; 
                 if (attackPoint != null && attackPoint.localPosition.x > 0)
@@ -97,38 +116,24 @@ public class EnemyAI : MonoBehaviour, IDamageable
         }
     }
 
-    // Détection de la balle par collision (Trigger)
-    private void OnTriggerEnter2D(Collider2D other)
+    void CalculerProchainChoixDeMouvement()
     {
-        if (isDead) return;
+        nextMovementChangeTime = Time.time + UnityEngine.Random.Range(changeMovementInterval * 0.7f, changeMovementInterval * 1.3f);
 
-        if (other.CompareTag("Bullet") && Time.time >= nextDodgeTime)
+        if (UnityEngine.Random.Range(0f, 100f) <= zigzagChance)
         {
-            // Jet de dés : est-ce que l'ennemi a les réflexes d'esquiver cette balle ?
-            if (Random.Range(0f, 100f) <= dodgeChance)
-            {
-                // On regarde si la balle est plus haute ou plus basse que l'ennemi
-                float yDiff = other.transform.position.y - transform.position.y;
-
-                // Si la balle arrive plutôt par le haut, l'ennemi esquive vers le bas. Sinon, vers le haut.
-                float chooseY = (yDiff > 0) ? -1f : 1f;
-
-                // On applique un mouvement purement vertical (haut ou bas) pour laisser passer le projectile
-                dodgeDirection = new Vector2(0f, chooseY).normalized;
-
-                dodgeEndTime = Time.time + 0.15f; // Durée très courte du bond rapide (0.15 seconde)
-                nextDodgeTime = Time.time + dodgeCooldown; 
-            }
-            else
-            {
-                // S'il rate ses réflexes, il ne peut pas retenter l'esquive sur une autre balle immédiatement
-                nextDodgeTime = Time.time + 0.4f; 
-            }
+            currentYOffset = (UnityEngine.Random.Range(0, 2) == 0) ? 1f : -1f;
+        }
+        else
+        {
+            currentYOffset = 0f;
         }
     }
 
     void TriggerAttack()
     {
+        if (playerTransform == null || !playerTransform.gameObject.activeInHierarchy) return;
+
         if (anim != null) anim.SetTrigger("Attack"); 
         nextAttackTime = Time.time + attackCooldown;
     }
@@ -143,7 +148,9 @@ public class EnemyAI : MonoBehaviour, IDamageable
 
     void Die()
     {
+        if (isDead) return;
         isDead = true;
+
         if (anim != null) anim.SetTrigger("Death");
 
         rb.linearVelocity = Vector2.zero;
@@ -151,6 +158,9 @@ public class EnemyAI : MonoBehaviour, IDamageable
 
         Collider2D col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false; 
+
+        // On notifie le Manager de notre décès
+        OnDeath?.Invoke(this);
 
         Destroy(gameObject, 2f);
     }
@@ -174,9 +184,6 @@ public class EnemyAI : MonoBehaviour, IDamageable
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, dodgeDetectionRadius);
-
         Gizmos.color = Color.red;
         Vector3 origin = attackPoint != null ? attackPoint.position : transform.position;
         Gizmos.DrawWireSphere(origin, attackRadius);
