@@ -1,4 +1,4 @@
-using System; // OBLIGATOIRE pour utiliser Action (l'événement pour l'UI)
+using System; // OBLIGATOIRE pour utiliser l'Action UI
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,14 +6,14 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour, IDamageable
 {
     // ÉVÉNEMENT POUR L'UI
-    // L'UI va s'abonner à cette alerte pour savoir quand éteindre les cœurs
     public event Action<int> OnPlayerHealthChanged;
 
     [SerializeField, Range(1f, 20f)] private float speed = 5f;
     
     [Header("Santé de Johnny")]
-    public int maxHealth = 3; // Mis en public pour que le script HealthUI puisse lire le chiffre "3"
+    public int maxHealth = 3; 
     [SerializeField] private GameObject bloodPrefab; 
+    [SerializeField] private GameObject panelRestart; // <-- Relie ton "MenuRestartPanel" ici
     private int currentHealth;
     private bool isDead = false;
 
@@ -21,26 +21,42 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] private Transform firePoint; 
 
     [Header("Effets Visuels")]
-    [SerializeField] private Transform cigaretteFumee; // <-- NOUVEAU : Glisse l'objet de ta fumée ici !
+    [SerializeField] private Transform cigaretteFumee; 
 
     private Rigidbody2D _rb;
     private Vector2 _movement;
     private Animator _anim;
     private SpriteRenderer _spriteRenderer; 
+    private Collider2D _collider; 
     private bool _canMove = true; 
     
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
+        _collider = GetComponent<Collider2D>();
         
         _spriteRenderer = GetComponent<SpriteRenderer>();
         if (_spriteRenderer == null) _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
+        // Réinitialisation complète des états physiques et visuels
+        Time.timeScale = 1f; 
+        isDead = false;
+        _canMove = true;
+        _movement = Vector2.zero;
+
+        if (_rb != null)
+        {
+            _rb.bodyType = RigidbodyType2D.Dynamic;
+            _rb.linearVelocity = Vector2.zero;
+        }
+
+        if (_collider != null) _collider.enabled = true;
+        if (_spriteRenderer != null) _spriteRenderer.enabled = true; 
+
         currentHealth = maxHealth;
     }
 
-    // FONCTION AJOUTÉE : Permet au script HealthUI de lire la vie de Johnny sans erreur d'accès
     public int GetCurrentHealth()
     {
         return currentHealth;
@@ -49,7 +65,6 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void OnMove(InputValue value)
     {
         if (isDead) return;
-
         Vector2 inputVector = value.Get<Vector2>();
         
         if (!_canMove) 
@@ -57,7 +72,6 @@ public class PlayerController : MonoBehaviour, IDamageable
             if (inputVector == Vector2.zero) _movement = Vector2.zero;
             return; 
         }
-
         _movement = inputVector;
     }
 
@@ -67,7 +81,6 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         SetCanMove(false);
         _anim.SetTrigger("Shoot");
-
         Invoke(nameof(DebloquerApresTir), 0.5f);
     }
 
@@ -92,63 +105,42 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (isDead) return;
 
         _rb.linearVelocity = _movement * speed;
-        
-        float vitesseglobale = _rb.linearVelocity.magnitude;
-        _anim.SetFloat("Velocity", vitesseglobale);
+        _anim.SetFloat("Velocity", _rb.linearVelocity.magnitude);
 
-        // GESTION DU RETOURNEMENT (JOHNNY + FIREPOINT + FUMÉE)
         if (_spriteRenderer != null)
         {
             if (_movement.x > 0.1f)
             {
-                _spriteRenderer.flipX = false; // Regarde à DROITE
-
-                // Reset du FirePoint
-                if (firePoint != null && firePoint.localEulerAngles.y != 0)
+                _spriteRenderer.flipX = false;
+                if (firePoint != null)
                 {
-                    firePoint.localEulerAngles = new Vector3(0, 0, 0);
+                    // Position à droite
                     firePoint.localPosition = new Vector3(Mathf.Abs(firePoint.localPosition.x), firePoint.localPosition.y, firePoint.localPosition.z);
-                }
-
-                // NOUVEAU : On remet la fumée à DROITE (Position X positive)
-                if (cigaretteFumee != null && cigaretteFumee.localPosition.x < 0)
-                {
-                    cigaretteFumee.localPosition = new Vector3(Mathf.Abs(cigaretteFumee.localPosition.x), cigaretteFumee.localPosition.y, cigaretteFumee.localPosition.z);
-                    cigaretteFumee.localEulerAngles = new Vector3(0, 0, 0);
+                    // 🌟 CORRECTION : Regarde vers la droite (0 degré)
+                    firePoint.localRotation = Quaternion.Euler(0, 0, 0);
                 }
             }
             else if (_movement.x < -0.1f)
             {
-                _spriteRenderer.flipX = true;  // Regarde à GAUCHE
-
-                // Pivot du FirePoint
-                if (firePoint != null && firePoint.localEulerAngles.y != 180)
+                _spriteRenderer.flipX = true;
+                if (firePoint != null)
                 {
-                    firePoint.localEulerAngles = new Vector3(0, 180, 0);
+                    // Position à gauche
                     firePoint.localPosition = new Vector3(-Mathf.Abs(firePoint.localPosition.x), firePoint.localPosition.y, firePoint.localPosition.z);
-                }
-
-                // NOUVEAU : On pousse la fumée à GAUCHE (Position X négative)
-                if (cigaretteFumee != null && cigaretteFumee.localPosition.x > 0)
-                {
-                    cigaretteFumee.localPosition = new Vector3(-Mathf.Abs(cigaretteFumee.localPosition.x), cigaretteFumee.localPosition.y, cigaretteFumee.localPosition.z);
-                    cigaretteFumee.localEulerAngles = new Vector3(0, 180, 0);
+                    // 🌟 CORRECTION : Regarde vers la gauche (180 degrés sur l'axe Y)
+                    firePoint.localRotation = Quaternion.Euler(0, 180, 0);
                 }
             }
         }
     }
 
-    // GESTION DES DÉGÂTS REÇUS (Appelée par les ennemis)
     public void TakeDamage(int amount)
     {
         if (isDead) return;
 
         currentHealth -= amount;
         if (currentHealth < 0) currentHealth = 0;
-
-        Debug.Log("Johnny a été touché ! PV restants : " + currentHealth);
-
-        // ALERT UI : On envoie la nouvelle vie actuelle au script HealthUI
+        
         OnPlayerHealthChanged?.Invoke(currentHealth);
 
         if (bloodPrefab != null)
@@ -165,12 +157,35 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     void Die()
     {
+        if (isDead) return;
         isDead = true;
-        _movement = Vector2.zero;
-        _rb.linearVelocity = Vector2.zero;
-        _rb.bodyType = RigidbodyType2D.Kinematic;
 
-        gameObject.SetActive(false); 
-        Debug.Log("Game Over ! Johnny a disparu.");
+        _movement = Vector2.zero;
+        if (_rb != null)
+        {
+            _rb.linearVelocity = Vector2.zero;
+            _rb.bodyType = RigidbodyType2D.Kinematic;
+        }
+
+        // 🔊 AUDIO : On coupe les sons du jeu
+        if (AudioManager.Instance != null) 
+        {
+            AudioManager.Instance.StopToutLesSons();
+        }
+
+        // On affiche le menu Game Over
+        if (panelRestart != null) 
+        {
+            panelRestart.SetActive(true);
+        }
+    
+        // On gèle le temps du jeu
+        Time.timeScale = 0f;
+
+        // Disparition propre du joueur
+        if (_spriteRenderer != null) _spriteRenderer.enabled = false;
+        if (_collider != null) _collider.enabled = false;
+
+        Debug.Log("Game Over !");
     }
 }

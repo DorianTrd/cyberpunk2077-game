@@ -54,7 +54,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
         if (spriteRenderer != null) spriteRenderer.color = data.debugColor;
     }
 
-   void FixedUpdate()
+    void FixedUpdate()
     {
         if (isDead || playerTransform == null || !playerTransform.gameObject.activeInHierarchy)
         {
@@ -150,6 +150,11 @@ public class EnemyAI : MonoBehaviour, IDamageable
     {
         if (isDead) return;
         isDead = true;
+        
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.AddKill();
+        }
 
         if (anim != null) anim.SetTrigger("Death");
 
@@ -159,10 +164,10 @@ public class EnemyAI : MonoBehaviour, IDamageable
         Collider2D col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false; 
 
-        // On notifie le Manager de notre décès
+        // On notifie le Manager de notre décès (ton code de spawner)
         OnDeath?.Invoke(this);
 
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 2f); // Laisse 2 secondes pour l'anim de mort
     }
 
     public void HitPlayerEvent()
@@ -177,6 +182,13 @@ public class EnemyAI : MonoBehaviour, IDamageable
             if (col.CompareTag("Player"))
             {
                 col.GetComponent<IDamageable>()?.TakeDamage(1);
+
+                // 🔊 AUDIO NOUVEAU : Le coup de poing se connecte sur Johnny, on joue le bruit de baffe !
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlayCoupEnnemi();
+                }
+
                 break; 
             }
         }

@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72d482d87e8bf14b8992e67e55accfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
-  _speed: 20
+  _speed: 35
   _damage: 1
   _bloodPrefab: {fileID: 4773786229493702567, guid: ae58324d8bc51dd47a93a76218efe4df, type: 3}
 --- !u!95 &1751061048560729359

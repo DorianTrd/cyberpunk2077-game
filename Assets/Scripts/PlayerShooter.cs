@@ -6,17 +6,14 @@ public class PlayerShooter : MonoBehaviour
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _firePoint;
 
-    // Appelé via l'Animation Event de ton animation de tir
     public void SpawnBullet()
     {
-        if (_bulletPrefab == null || _firePoint == null)
-        {
-            Debug.LogError("Attention : Le Prefab de la balle ou le FirePoint est manquant sur " + gameObject.name);
-            return;
-        }
+        if (_bulletPrefab == null || _firePoint == null) return;
 
-        // On utilise la rotation du _firePoint au lieu de Quaternion.identity.
-        // Comme ça, si un jour Johnny se retourne vers la gauche, la balle partira vers la gauche !
+        // Applique maintenant la position ET la rotation corrigée (gauche ou droite)
         Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
+
+        // 🔊 AUDIO : Bruit de tir !
+        if (AudioManager.Instance != null) AudioManager.Instance.PlayTir();
     }
 }
