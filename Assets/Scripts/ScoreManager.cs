@@ -72,4 +72,10 @@ public class ScoreManager : MonoBehaviour
             _bestText.text = "Best: " + _bestCount;
         }
     }
+
+    // 🌟 EN JEU : Permet aux autres scripts (comme l'activateur de spawner) de lire le score
+    public int GetKillCount()
+    {
+        return _killCount;
+    }
 }

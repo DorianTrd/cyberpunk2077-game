@@ -21,7 +21,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("--- VOIX DE JOHNNY ---")]
     [SerializeField] private AudioClip[] _repliquesJohnny; 
-    [SerializeField] private float _tempsEntreRepliques = 12f; 
+    [SerializeField] private float _tempsEntreRepliques = 1.5f; 
     
     private float _timerVoix;
 

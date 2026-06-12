@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         if (!_canMove || isDead) return; 
 
+        
         SetCanMove(false);
         _anim.SetTrigger("Shoot");
         Invoke(nameof(DebloquerApresTir), 0.5f);

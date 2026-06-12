@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyName: Punk
   maxHealth: 3
-  speed: 1.5
+  speed: 2
   debugColor: {r: 1, g: 1, b: 1, a: 1}
