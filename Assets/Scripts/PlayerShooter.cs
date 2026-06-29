@@ -1,17 +1,19 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerShooter : MonoBehaviour
 {
+    [FormerlySerializedAs("_bulletPrefab")]
     [Header("Configuration du Tir")]
-    [SerializeField] private GameObject _bulletPrefab;
-    [SerializeField] private Transform _firePoint;
+    [SerializeField] private GameObject bulletPrefab;
+    [FormerlySerializedAs("_firePoint")] [SerializeField] private Transform firePoint;
 
     public void SpawnBullet()
     {
-        if (_bulletPrefab == null || _firePoint == null) return;
+        if (bulletPrefab == null || firePoint == null) return;
 
         // Applique maintenant la position ET la rotation corrigée (gauche ou droite)
-        Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
         // 🔊 AUDIO : Bruit de tir !
         if (AudioManager.Instance != null) AudioManager.Instance.PlayTir();

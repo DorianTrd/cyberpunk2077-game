@@ -14,8 +14,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     public int maxHealth = 3; 
     [SerializeField] private GameObject bloodPrefab; 
     [SerializeField] private GameObject panelRestart; // <-- Relie ton "MenuRestartPanel" ici
-    private int currentHealth;
-    private bool isDead = false;
+    private int _currentHealth;
+    private bool _isDead = false;
 
     [Header("Système de Tir")]
     [SerializeField] private Transform firePoint; 
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         // Réinitialisation complète des états physiques et visuels
         Time.timeScale = 1f; 
-        isDead = false;
+        _isDead = false;
         _canMove = true;
         _movement = Vector2.zero;
 
@@ -54,17 +54,17 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (_collider != null) _collider.enabled = true;
         if (_spriteRenderer != null) _spriteRenderer.enabled = true; 
 
-        currentHealth = maxHealth;
+        _currentHealth = maxHealth;
     }
 
     public int GetCurrentHealth()
     {
-        return currentHealth;
+        return _currentHealth;
     }
 
     private void OnMove(InputValue value)
     {
-        if (isDead) return;
+        if (_isDead) return;
         Vector2 inputVector = value.Get<Vector2>();
         
         if (!_canMove) 
@@ -77,9 +77,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void OnAttack()
     {
-        if (!_canMove || isDead) return; 
+        if (!_canMove || _isDead) return; 
 
-        
         SetCanMove(false);
         _anim.SetTrigger("Shoot");
         Invoke(nameof(DebloquerApresTir), 0.5f);
@@ -87,7 +86,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void DebloquerApresTir()
     {
-        if (isDead) return;
+        if (_isDead) return;
         SetCanMove(true);
     }
 
@@ -103,7 +102,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void FixedUpdate()
     {
-        if (isDead) return;
+        if (_isDead) return;
 
         _rb.linearVelocity = _movement * speed;
         _anim.SetFloat("Velocity", _rb.linearVelocity.magnitude);
@@ -113,23 +112,37 @@ public class PlayerController : MonoBehaviour, IDamageable
             if (_movement.x > 0.1f)
             {
                 _spriteRenderer.flipX = false;
+                
+                // --- CONFIGURATION DROITE ---
                 if (firePoint != null)
                 {
-                    // Position à droite
                     firePoint.localPosition = new Vector3(Mathf.Abs(firePoint.localPosition.x), firePoint.localPosition.y, firePoint.localPosition.z);
-                    // 🌟 CORRECTION : Regarde vers la droite (0 degré)
                     firePoint.localRotation = Quaternion.Euler(0, 0, 0);
+                }
+
+                // 🌟 NOUVEAU : On oriente la fumée vers la droite
+                if (cigaretteFumee != null)
+                {
+                    cigaretteFumee.localPosition = new Vector3(Mathf.Abs(cigaretteFumee.localPosition.x), cigaretteFumee.localPosition.y, cigaretteFumee.localPosition.z);
+                    cigaretteFumee.localRotation = Quaternion.Euler(0, 0, 0);
                 }
             }
             else if (_movement.x < -0.1f)
             {
                 _spriteRenderer.flipX = true;
+                
+                // --- CONFIGURATION GAUCHE ---
                 if (firePoint != null)
                 {
-                    // Position à gauche
                     firePoint.localPosition = new Vector3(-Mathf.Abs(firePoint.localPosition.x), firePoint.localPosition.y, firePoint.localPosition.z);
-                    // 🌟 CORRECTION : Regarde vers la gauche (180 degrés sur l'axe Y)
                     firePoint.localRotation = Quaternion.Euler(0, 180, 0);
+                }
+
+                // 🌟 NOUVEAU : On déplace la fumée à gauche et on la fait pivoter sur l'axe Y à 180°
+                if (cigaretteFumee != null)
+                {
+                    cigaretteFumee.localPosition = new Vector3(-Mathf.Abs(cigaretteFumee.localPosition.x), cigaretteFumee.localPosition.y, cigaretteFumee.localPosition.z);
+                    cigaretteFumee.localRotation = Quaternion.Euler(0, 180, 0);
                 }
             }
         }
@@ -137,12 +150,12 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public void TakeDamage(int amount)
     {
-        if (isDead) return;
+        if (_isDead) return;
 
-        currentHealth -= amount;
-        if (currentHealth < 0) currentHealth = 0;
+        _currentHealth -= amount;
+        if (_currentHealth < 0) _currentHealth = 0;
         
-        OnPlayerHealthChanged?.Invoke(currentHealth);
+        OnPlayerHealthChanged?.Invoke(_currentHealth);
 
         if (bloodPrefab != null)
         {
@@ -150,7 +163,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             Destroy(bloodEffect, 0.3f);
         }
 
-        if (currentHealth <= 0)
+        if (_currentHealth <= 0)
         {
             Die();
         }
@@ -158,8 +171,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     void Die()
     {
-        if (isDead) return;
-        isDead = true;
+        if (_isDead) return;
+        _isDead = true;
 
         _movement = Vector2.zero;
         if (_rb != null)

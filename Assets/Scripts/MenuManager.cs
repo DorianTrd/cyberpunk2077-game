@@ -1,15 +1,18 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // OBLIGATOIRE pour recharger la scène
+using UnityEngine.SceneManagement;
+using UnityEngine.Serialization; // OBLIGATOIRE pour recharger la scène
 
 public class MenuManager : MonoBehaviour
 {
+    [FormerlySerializedAs("_menuPanel")]
     [Header("Éléments de l'UI")]
-    [SerializeField] private GameObject _menuPanel;        // Ton MenuPrincipalPanel
-    [SerializeField] private GameObject _gameHUDPanel;      // Optionnel (Peut rester vide)
-    [SerializeField] private GameObject _menuRestartPanel;  // Ton MenuRestartPanel (Le Game Over)
+    [SerializeField] private GameObject menuPanel;        // Ton MenuPrincipalPanel
+    [FormerlySerializedAs("_gameHUDPanel")] [SerializeField] private GameObject gameHUDPanel;      // Optionnel (Peut rester vide)
+    [FormerlySerializedAs("_menuRestartPanel")] [SerializeField] private GameObject menuRestartPanel;  // Ton MenuRestartPanel (Le Game Over)
 
+    [FormerlySerializedAs("_playerMovementScript")]
     [Header("Le Joueur")]
-    [SerializeField] private MonoBehaviour _playerMovementScript; // Le script PlayerController de Johnny
+    [SerializeField] private MonoBehaviour playerMovementScript; // Le script PlayerController de Johnny
 
     void Start()
     {
@@ -17,7 +20,7 @@ public class MenuManager : MonoBehaviour
         Time.timeScale = 1f;
 
         // 🌟 SÉCURITÉ ABSOLUE : On éteint le Game Over EN PREMIER !
-        if (_menuRestartPanel != null) _menuRestartPanel.SetActive(false);
+        if (menuRestartPanel != null) menuRestartPanel.SetActive(false);
 
         // 🔊 AUDIO : Lancement de la musique du menu principal
         if (AudioManager.Instance != null)
@@ -26,25 +29,25 @@ public class MenuManager : MonoBehaviour
         }
 
         // Configuration visuelle de départ
-        if (_menuPanel != null) _menuPanel.SetActive(true);
+        if (menuPanel != null) menuPanel.SetActive(true);
         
         // On ne touche au HUD que s'il y a quelque chose dans la case, sinon on s'en fout
-        if (_gameHUDPanel != null) _gameHUDPanel.SetActive(false);
+        if (gameHUDPanel != null) gameHUDPanel.SetActive(false);
 
         // Johnny ne bouge pas tant qu'on est au menu principal
-        if (_playerMovementScript != null) _playerMovementScript.enabled = false;
+        if (playerMovementScript != null) playerMovementScript.enabled = false;
     }
     
     
     // Appelé par le bouton START
     public void BoutonStartPresse()
     {
-        if (_menuPanel != null) _menuPanel.SetActive(false);
-        if (_menuRestartPanel != null) _menuRestartPanel.SetActive(false);
-        if (_gameHUDPanel != null) _gameHUDPanel.SetActive(true);
+        if (menuPanel != null) menuPanel.SetActive(false);
+        if (menuRestartPanel != null) menuRestartPanel.SetActive(false);
+        if (gameHUDPanel != null) gameHUDPanel.SetActive(true);
 
         // Johnny est libre de bouger
-        if (_playerMovementScript != null) _playerMovementScript.enabled = true;
+        if (playerMovementScript != null) playerMovementScript.enabled = true;
 
         // 🔊 AUDIO : On bascule sur les musiques de combat !
         if (AudioManager.Instance != null)

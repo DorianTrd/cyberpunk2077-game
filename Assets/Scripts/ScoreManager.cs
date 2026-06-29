@@ -1,14 +1,16 @@
 using UnityEngine;
-using TMPro; // OBLIGATOIRE pour utiliser TextMeshPro
+using TMPro;
+using UnityEngine.Serialization; // OBLIGATOIRE pour utiliser TextMeshPro
 
 public class ScoreManager : MonoBehaviour
 {
     // Permet d'accéder au ScoreManager depuis n'importe quel autre script facilement
     public static ScoreManager Instance { get; private set; }
 
+    [FormerlySerializedAs("_killText")]
     [Header("UI Elements")]
-    [SerializeField] private TextMeshProUGUI _killText; // Glisse ton texte "Kills" ici
-    [SerializeField] private TextMeshProUGUI _bestText; // <-- NOUVEAU : Glisse ton texte "Best" ici
+    [SerializeField] private TextMeshProUGUI killText; // Glisse ton texte "Kills" ici
+    [FormerlySerializedAs("_bestText")] [SerializeField] private TextMeshProUGUI bestText; // <-- NOUVEAU : Glisse ton texte "Best" ici
 
     private int _killCount = 0;
     private int _bestCount = 0; // Stocke le record en cours de partie
@@ -58,18 +60,18 @@ public class ScoreManager : MonoBehaviour
     // Met à jour l'affichage des Kills actuels
     private void UpdateKillUI()
     {
-        if (_killText != null)
+        if (killText != null)
         {
-            _killText.text = "Kills: " + _killCount;
+            killText.text = "Kills: " + _killCount;
         }
     }
 
     // NOUVEAU : Met à jour l'affichage du Record
     private void UpdateBestUI()
     {
-        if (_bestText != null)
+        if (bestText != null)
         {
-            _bestText.text = "Best: " + _bestCount;
+            bestText.text = "Best: " + _bestCount;
         }
     }
 

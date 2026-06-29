@@ -1,27 +1,37 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class AudioManager : MonoBehaviour
 {
+    // Permet d'accéder au AudioManager depuis n'importe quel autre script facilement
     public static AudioManager Instance { get; private set; }
 
+    [FormerlySerializedAs("_musicSource")]
     [Header("--- HAUT-PARLEURS ---")]
-    [SerializeField] private AudioSource _musicSource; 
-    [SerializeField] private AudioSource _sfxSource;   
-    [SerializeField] private AudioSource _voiceSource; 
+    [SerializeField] private AudioSource musicSource; 
+    [FormerlySerializedAs("_sfxSource")] [SerializeField] private AudioSource sfxSource;   
+    [FormerlySerializedAs("_voiceSource")] [SerializeField] private AudioSource voiceSource; 
 
+    [FormerlySerializedAs("_introVocaleMenu")]
     [Header("--- MUSIQUES ---")]
-    [SerializeField] private AudioClip _introVocaleMenu;  // L'audio de démarrage (laisser VIDE si inutilisé)
-    [SerializeField] private AudioClip _musiqueMenu;       // Musique du menu principal
-    [SerializeField] private AudioClip[] _musiquesJeu;
+    [SerializeField] private AudioClip introVocaleMenu;  // L'audio de démarrage (laisser VIDE si inutilisé)
     
+    // ⏱️ Règle ici le temps d'attente (en secondes) avant que la musique ne commence !
+    [FormerlySerializedAs("_tempsAvantMusiqueMenu")] [SerializeField] private float tempsAvantMusiqueMenu = 1.0f; 
+    
+    [FormerlySerializedAs("_musiqueMenu")] [SerializeField] private AudioClip musiqueMenu;       // Musique du menu principal
+    [FormerlySerializedAs("_musiquesJeu")] [SerializeField] private AudioClip[] musiquesJeu;
+    
+    [FormerlySerializedAs("_sonTirPistolet")]
     [Header("--- EFFETS SONORES (SFX) ---")]
-    [SerializeField] private AudioClip _sonTirPistolet;
-    [SerializeField] private AudioClip _sonCoupEnnemi;
-    [SerializeField] private AudioClip[] _sonsMortEnnemi;
+    [SerializeField] private AudioClip sonTirPistolet;
+    [FormerlySerializedAs("_sonCoupEnnemi")] [SerializeField] private AudioClip sonCoupEnnemi;
+    [FormerlySerializedAs("_sonsMortEnnemi")] [SerializeField] private AudioClip[] sonsMortEnnemi;
 
+    [FormerlySerializedAs("_repliquesJohnny")]
     [Header("--- VOIX DE JOHNNY ---")]
-    [SerializeField] private AudioClip[] _repliquesJohnny; 
-    [SerializeField] private float _tempsEntreRepliques = 1.5f; 
+    [SerializeField] private AudioClip[] repliquesJohnny; 
+    [FormerlySerializedAs("_tempsEntreRepliques")] [SerializeField] private float tempsEntreRepliques = 1.5f; 
     
     private float _timerVoix;
 
@@ -37,18 +47,20 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        _timerVoix = _tempsEntreRepliques;
+        _timerVoix = tempsEntreRepliques;
     }
 
     private void Start()
     {
         // Si la case Intro est remplie, on la joue avant la musique de fond
-        if (_introVocaleMenu != null)
+        if (introVocaleMenu != null)
         {
-            _musicSource.clip = _introVocaleMenu;
-            _musicSource.loop = false;
-            _musicSource.Play();
-            Invoke(nameof(JouerMusiqueMenu), _introVocaleMenu.length);
+            musicSource.clip = introVocaleMenu;
+            musicSource.loop = false;
+            musicSource.Play();
+            
+            // 🌟 CORRECTION : Utilise maintenant le délai personnalisé au lieu d'attendre la fin du fichier
+            Invoke(nameof(JouerMusiqueMenu), tempsAvantMusiqueMenu);
         }
         else // Sinon, la musique de menu démarre immédiatement
         {
@@ -58,23 +70,23 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        if (Time.timeScale > 0f && _repliquesJohnny.Length > 0 && EstEnTrainDeJouerUneMusiqueDeJeu())
+        if (Time.timeScale > 0f && repliquesJohnny.Length > 0 && EstEnTrainDeJouerUneMusiqueDeJeu())
         {
             _timerVoix -= Time.deltaTime;
             if (_timerVoix <= 0f)
             {
                 JouerVoixAleatoireJohnny();
-                _timerVoix = _tempsEntreRepliques + Random.Range(-3f, 4f); 
+                _timerVoix = tempsEntreRepliques + Random.Range(-3f, 4f); 
             }
         }
     }
 
     private bool EstEnTrainDeJouerUneMusiqueDeJeu()
     {
-        if (_musicSource.clip == null) return false;
-        foreach (var musique in _musiquesJeu)
+        if (musicSource.clip == null) return false;
+        foreach (var musique in musiquesJeu)
         {
-            if (_musicSource.clip == musique) return true;
+            if (musicSource.clip == musique) return true;
         }
         return false;
     }
@@ -82,49 +94,49 @@ public class AudioManager : MonoBehaviour
     public void JouerMusiqueMenu()
     {
         CancelInvoke(nameof(JouerMusiqueMenu));
-        if (_musiqueMenu == null || _musicSource.clip == _musiqueMenu) return;
-        _musicSource.clip = _musiqueMenu;
-        _musicSource.loop = true;
-        _musicSource.Play();
+        if (musiqueMenu == null || musicSource.clip == musiqueMenu) return;
+        musicSource.clip = musiqueMenu;
+        musicSource.loop = true;
+        musicSource.Play();
     }
 
     public void JouerMusiqueJeu()
     {
         CancelInvoke(nameof(JouerMusiqueMenu)); 
-        if (_musiquesJeu == null || _musiquesJeu.Length == 0) return;
+        if (musiquesJeu == null || musiquesJeu.Length == 0) return;
 
-        int indexAleatoire = Random.Range(0, _musiquesJeu.Length);
-        AudioClip musiqueChoisie = _musiquesJeu[indexAleatoire];
+        int indexAleatoire = Random.Range(0, musiquesJeu.Length);
+        AudioClip musiqueChoisie = musiquesJeu[indexAleatoire];
 
-        if (_musicSource.clip == musiqueChoisie) return;
+        if (musicSource.clip == musiqueChoisie) return;
 
-        _musicSource.clip = musiqueChoisie;
-        _musicSource.loop = true; 
-        _musicSource.Play();
+        musicSource.clip = musiqueChoisie;
+        musicSource.loop = true; 
+        musicSource.Play();
     }
 
-    public void PlayTir() => _sfxSource.PlayOneShot(_sonTirPistolet, 1.0f);
+    public void PlayTir() => sfxSource.PlayOneShot(sonTirPistolet, 1.0f);
     
-    public void PlayCoupEnnemi() => _sfxSource.PlayOneShot(_sonCoupEnnemi, 5f);
+    public void PlayCoupEnnemi() => sfxSource.PlayOneShot(sonCoupEnnemi, 5f);
    
     public void PlayMortEnnemi()
     {
-        if (_sonsMortEnnemi == null || _sonsMortEnnemi.Length == 0) return;
-        int indexAleatoire = Random.Range(0, _sonsMortEnnemi.Length);
-        _sfxSource.PlayOneShot(_sonsMortEnnemi[indexAleatoire], 1.0f);
+        if (sonsMortEnnemi == null || sonsMortEnnemi.Length == 0) return;
+        int indexAleatoire = Random.Range(0, sonsMortEnnemi.Length);
+        sfxSource.PlayOneShot(sonsMortEnnemi[indexAleatoire], 1.0f);
     }
 
     private void JouerVoixAleatoireJohnny()
     {
-        if (_voiceSource.isPlaying) return; 
-        int index = Random.Range(0, _repliquesJohnny.Length);
-        _voiceSource.PlayOneShot(_repliquesJohnny[index]);
+        if (voiceSource.isPlaying) return; 
+        int index = Random.Range(0, repliquesJohnny.Length);
+        voiceSource.PlayOneShot(repliquesJohnny[index]);
     }
 
     public void StopToutLesSons()
     {
-        _musicSource.Stop();
-        _sfxSource.Stop();
-        _voiceSource.Stop();
+        musicSource.Stop();
+        sfxSource.Stop();
+        voiceSource.Stop();
     }
 }
