@@ -3,7 +3,7 @@ using UnityEngine.Serialization;
 
 public class AudioManager : MonoBehaviour
 {
-    // Permet d'accéder au AudioManager depuis n'importe quel autre script facilement
+   
     public static AudioManager Instance { get; private set; }
 
     [FormerlySerializedAs("_musicSource")]
@@ -14,12 +14,12 @@ public class AudioManager : MonoBehaviour
 
     [FormerlySerializedAs("_introVocaleMenu")]
     [Header("--- MUSIQUES ---")]
-    [SerializeField] private AudioClip introVocaleMenu;  // L'audio de démarrage (laisser VIDE si inutilisé)
+    [SerializeField] private AudioClip introVocaleMenu;  
     
-    // ⏱️ Règle ici le temps d'attente (en secondes) avant que la musique ne commence !
+
     [FormerlySerializedAs("_tempsAvantMusiqueMenu")] [SerializeField] private float tempsAvantMusiqueMenu = 1.0f; 
     
-    [FormerlySerializedAs("_musiqueMenu")] [SerializeField] private AudioClip musiqueMenu;       // Musique du menu principal
+    [FormerlySerializedAs("_musiqueMenu")] [SerializeField] private AudioClip musiqueMenu;   
     [FormerlySerializedAs("_musiquesJeu")] [SerializeField] private AudioClip[] musiquesJeu;
     
     [FormerlySerializedAs("_sonTirPistolet")]
@@ -52,17 +52,17 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        // Si la case Intro est remplie, on la joue avant la musique de fond
+ 
         if (introVocaleMenu != null)
         {
             musicSource.clip = introVocaleMenu;
             musicSource.loop = false;
             musicSource.Play();
             
-            // 🌟 CORRECTION : Utilise maintenant le délai personnalisé au lieu d'attendre la fin du fichier
+
             Invoke(nameof(JouerMusiqueMenu), tempsAvantMusiqueMenu);
         }
-        else // Sinon, la musique de menu démarre immédiatement
+        else 
         {
             JouerMusiqueMenu();
         }

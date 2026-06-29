@@ -9,8 +9,8 @@ public class CameraFollow : MonoBehaviour
     [SerializeField, Range(0.01f, 1f)] private float smoothTime = 0.15f; 
     
     [Header("Limites de la Map (Axe X uniquement)")]
-    [SerializeField] private float minX = 0f;   // Ta limite gauche
-    [SerializeField] private float maxX = 24.5f;  // Ta limite droite
+    [SerializeField] private float minX = 0f;   //limite gauche
+    [SerializeField] private float maxX = 24.5f;  //limite droite
     
     private float _fixedY; 
     private Vector2 _currentVelocity; 

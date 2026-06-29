@@ -49,8 +49,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
         this.speed = data.speed;
         this.maxHealth = data.maxHealth;
         this._currentHealth = data.maxHealth;
-
-        // Optionnel : teinter l'ennemi selon la couleur du ScriptableObject
+        
         if (_spriteRenderer != null) _spriteRenderer.color = data.debugColor;
     }
 
@@ -90,13 +89,12 @@ public class EnemyAI : MonoBehaviour, IDamageable
                 finalDirection.Normalize(); 
             }
 
-            // CORRECTION RADICALE : On repasse par la velocity physique standard, 
-            // mais gérée proprement dans le FixedUpdate pour que les murs Default le bloquent à 100%
+       
             _rb.linearVelocity = finalDirection * speed;
 
             if (_anim != null) _anim.SetBool("IsWalking", true);
 
-            // Gestion du visuel (Flip)
+      
             if (directionToPlayer.x > 0.1f)
             {
                 _spriteRenderer.flipX = true;       
@@ -161,18 +159,15 @@ public class EnemyAI : MonoBehaviour, IDamageable
         _rb.linearVelocity = Vector2.zero;
         _rb.bodyType = RigidbodyType2D.Kinematic; 
 
-        // 🌟 CORRECTION 1 : Désactiver le collider pour la physique 2D
+   
         Collider2D col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false; 
 
-        // 🌟 CORRECTION 2 : Changer le Layer pour "Ignore Raycast" (Calque numéro 2 sous Unity)
-        // De cette façon, même si tes balles utilisent un système de Raycast laser, le cadavre est invisible pour elles !
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
 
-        // On notifie le Manager de notre décès (ton code de spawner)
         OnDeath?.Invoke(this);
 
-        Destroy(gameObject, 2f); // Laisse 2 secondes pour l'anim de mort
+        Destroy(gameObject, 2f);
     }
 
     public void HitPlayerEvent()
@@ -188,7 +183,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
             {
                 col.GetComponent<IDamageable>()?.TakeDamage(1);
 
-                // 🔊 AUDIO NOUVEAU : Le coup de poing se connecte sur Johnny, on joue le bruit de baffe !
+              
                 if (AudioManager.Instance != null)
                 {
                     AudioManager.Instance.PlayCoupEnnemi();

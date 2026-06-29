@@ -99,7 +99,7 @@ public class EnemyManager : MonoBehaviour
         _activeEnemies.Remove(enemy);
         enemy.OnDeath -= EnemyDeathHandler;
 
-        // 🔊 NOUVEAU - AUDIO : Dès qu'un ennemi meurt, on joue le son de sa mort !
+
         if (AudioManager.Instance != null)
         {
             AudioManager.Instance.PlayMortEnnemi();

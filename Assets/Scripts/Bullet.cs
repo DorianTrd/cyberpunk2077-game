@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [FormerlySerializedAs("_speed")] [SerializeField, Range(1f, 50f)] private float speed = 20f;
     [FormerlySerializedAs("_damage")] [SerializeField] private int damage = 1;
-    [FormerlySerializedAs("_bloodPrefab")] [SerializeField] private GameObject bloodPrefab; // Glisse ton Prefab de sang ici dans Unity
+    [FormerlySerializedAs("_bloodPrefab")] [SerializeField] private GameObject bloodPrefab; 
 
     private void Update()
     {
